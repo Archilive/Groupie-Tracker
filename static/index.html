@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/index.css">
+    <title>Groupie-Tracker</title>
+</head>
+
+<body>
+    <div class="banniere">
+        <h1>The Groupie-Tracker API</h1>
+        <form action="/" method="POST">
+            <input type="image" class="BoutonBack" src="./assets/home.png" />
+        </form>
+    </div>
+    
+    <form  class="filter" action="/filter" method="POST">
+        <div id="searchWrapper">
+            <input id="searchbar" onkeyup="searching()" type="text" name="lettre" placeholder="Research" >
+        </div>
+        <h3 id="titlefilter"></h3>
+            <button type="button" class="bouton-order" id="order"><h4>Order</h4></button>
+            <div id="dropdown-child-order" class="dropdown-child-order">
+                <ul>
+                    <a><button class="buttoninorder" value="0" name="order">By alphabetic</button></a>
+                    <a><button class="buttoninorder" value="1" name="order">By reverse alphabetic</button></a>
+                    <a><button class="buttoninorder" value="2" name="order">By creation date</button></a>
+                    <a><button class="buttoninorder" value="3" name="order">By reverse creation date</button></a>
+                </ul>
+            </div>
+        <h3 id="titlefilter">Filter :</h2>
+        <h3>By number of members :</h3>
+        <div class="checkbox">
+            <input value="1" type="checkbox" name="members" />
+            <label>1</label>
+            <input value="2" type="checkbox" name="members" />
+            <label>2</label>
+            <input value="3" type="checkbox" name="members" />
+            <label>3</label>
+            <input value="4" type="checkbox" name="members" />
+            <label>4</label>
+            <input value="5" type="checkbox" name="members" />
+            <label>5</label>
+            <input value="6" type="checkbox" name="members" />
+            <label>6</label>
+            <input value="7" type="checkbox" name="members" />
+            <label>7</label>
+            <input value="8" type="checkbox" name="members" />
+            <label>8</label>
+        </div>
+        <h3>By country :</h3>
+            <button type="button" class="bouton-city" id="city"><h4>Select</h4></button>
+            <div id="dropdown-child" class="dropdown-child">
+                <ul>
+                    <a> <input value="usa" type="checkbox" name="pays">usa</a>
+                    <a> <input value="japan" type="checkbox" name="pays">japan</a>
+                    <a> <input value="new_zealand" type="checkbox" name="pays">new_zealand</a>
+                    <a> <input value="mexico" type="checkbox" name="pays">mexico</a>
+                    <a> <input value="french_polynesia" type="checkbox" name="pays">french_polynesia</a>
+                    <a> <input value="new_caledonia" type="checkbox" name="pays">new_caledonia</a>
+                    <a> <input value="uk" type="checkbox" name="pays">uk</a>
+                    <a> <input value="switzerland" type="checkbox" name="pays">switzerland</a>
+                    <a> <input value="france" type="checkbox" name="pays">france</a>
+                    <a> <input value="australia" type="checkbox" name="pays">australia</a>
+                    <a> <input value="indonesia" type="checkbox" name="pays">indonesia</a>
+                    <a> <input value="slovakia" type="checkbox" name="pays">slovakia</a>
+                    <a> <input value="hungary" type="checkbox" name="pays">hungary</a>
+                    <a> <input value="belarus" type="checkbox" name="pays">belarus</a>
+                    <a> <input value="brazil" type="checkbox" name="pays">brazil</a>
+                    <a> <input value="argentina" type="checkbox" name="pays">argentina</a>
+                    <a> <input value="sweden" type="checkbox" name="pays">sweden</a>
+                    <a> <input value="belgium" type="checkbox" name="pays">belgium</a>
+                    <a> <input value="portugal" type="checkbox" name="pays">portugal</a>
+                    <a> <input value="spain" type="checkbox" name="pays">spain</a>
+                    <a> <input value="colombia" type="checkbox" name="pays">colombia</a>
+                    <a> <input value="germany" type="checkbox" name="pays">germany</a>
+                    <a> <input value="denmark" type="checkbox" name="pays">denmark</a>
+                    <a> <input value="qatar" type="checkbox" name="pays">qatar</a>
+                    <a> <input value="india" type="checkbox" name="pays">india</a>
+                    <a> <input value="united_arab_emirates" type="checkbox" name="pays">united_arab_emirates</a>
+                    <a> <input value="czechia" type="checkbox" name="pays">czechia</a>
+                    <a> <input value="austria" type="checkbox" name="pays">austria</a>
+                    <a> <input value="netherlands" type="checkbox" name="pays">netherlands</a>
+                    <a> <input value="finland" type="checkbox" name="pays">finland</a>
+                    <a> <input value="romania" type="checkbox" name="pays">romania</a>
+                    <a> <input value="saudi_arabia" type="checkbox" name="pays">saudi_arabia</a>
+                    <a> <input value="canada" type="checkbox" name="pays">canada</a>
+                    <a> <input value="ireland" type="checkbox" name="pays">ireland</a>
+                    <a> <input value="poland" type="checkbox" name="pays">poland</a>
+                    <a> <input value="italy" type="checkbox" name="pays">italy</a>
+                    <a> <input value="norway" type="checkbox" name="pays">norway</a>
+                    <a> <input value="china" type="checkbox" name="pays">china</a>
+                    <a> <input value="chile" type="checkbox" name="pays">chile</a>
+                    <a> <input value="philippines" type="checkbox" name="pays">philippines</a>
+                    <a> <input value="peru" type="checkbox" name="pays">peru</a>
+                    <a> <input value="greece" type="checkbox" name="pays">greece</a>
+                    <a> <input value="thailand" type="checkbox" name="pays">thailand</a>
+                    <a> <input value="taiwan" type="checkbox" name="pays">taiwan</a>
+                    <a> <input value="south_korea" type="checkbox" name="pays">south_korea</a>
+                    <a> <input value="netherlands_antilles" type="checkbox" name="pays">netherlands_antilles</a>
+                    <a> <input value="costa_rica" type="checkbox" name="pays">costa_rica</a>
+                </ul>
+            </div>
+        <div class="wrapper">
+            <h3>By first album date : </h3>
+            <div class="values">
+                <span id="range_alb_min">
+                    1963
+                </span>
+                <span> &dash; </span>
+                <span id="range_alb_max">
+                    2018
+                </span>
+            </div>
+            <div class="emboitage">
+                <div class="slider-trackOne"></div>
+                <input name="slideralbum" type="range" min="1963" max="2018" value="1963" id="slider_alb_min" oninput="slideralbmin()">
+                <input name="slideralbum" type="range" min="1963" max="2018" value="2018" id="slider_alb_max" oninput="slideralbmax()">
+            </div>
+            <h3>By creation date : </h3>
+            <div class="values">
+                <span id="range_crea_min">
+                    1958
+                </span>
+                <span> &dash; </span>
+                <span id="range_crea_max">
+                    2015
+                </span>
+            </div>
+            <div class="emboitage">
+                <div class="slider-trackTwo"></div>
+                <input name="slidercreation" type="range" min="1958" max="2015" value="1958" id="slider_crea_min" oninput="slidercreamin()">
+                <input name="slidercreation" type="range" min="1958" max="2015" value="2015" id="slider_crea_max" oninput="slidercreamax()">
+            </div>
+        </div>
+        
+        <button type="submit" class="apply">Apply</button>
+    </form>
+    <form method="post" action="/info" class="allcards">
+    {{ range .}}
+        
+        <button name="overlay" class="card" value={{ .Id }}>
+            <div class="membersa">
+                {{ .Members }}
+           </div>
+            <img class="image" src={{ .Image }}>
+            <div class="titre">
+                <h2>{{ .Name }}</h2>
+                <div class="artistinfo">
+                    <h3>Creation date : </h3>
+                    <p>{{ .CreationDate }}</p>
+                    <h3>First album : </h3>
+                    <p>{{ .FirstAlbum }}</p>
+                </div>
+            </div>
+        </button>
+    {{ end }}
+    </form>
+    <script type="text/javascript" src="./static/script.js"></script>
+</body>
+
+</html>

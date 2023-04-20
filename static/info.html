@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/info.css">
+    <title>Groupie-Tracker</title>
+</head>
+
+<body>
+    <div class="banniere">
+        <h1>The Groupie-Tracker API</h1>
+    </div>
+
+    <form action="/" method="POST">
+        <input type="image" class="BoutonBack" src="./assets/home.png" />
+    </form>
+    <div class="contentinfo">
+        <div class="info">
+
+            <h2 class="groupname">{{ .Name }}</h2>
+
+            <div class="location">
+                {{range $key, $value := .Relations}}
+                <div class="concerts">
+                    <p id="para" class="locationP">{{$key}}</p>
+                    <p id="para">{{range $value}}{{.}}<br>{{end}}</p>                
+                </div>
+                {{end}}
+            </div>
+
+            <div class="fixe">
+
+                <div class="creationDate">
+                    <p id="para" class="display2">Creation's Date</p>
+                    <p id="para">{{ .CreationDate }}</p>
+                </div>
+
+                <div class="imagecard">
+                    <img class="imageDif" src={{.Image}} />
+                </div>
+
+                <div class="members">
+                    <p class="display" id="para" >Members:</p>
+                    {{range .Members}}
+                    <ul>{{.}}</ul>
+                    {{end}}
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</body>
+
+</html>
